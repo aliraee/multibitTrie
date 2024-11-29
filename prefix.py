@@ -1,5 +1,7 @@
 import os
+import time
 from memory_profiler import profile
+
 # Open the file in read mode ('r')
 file_path = os.path.join(os.getcwd(),'prefix-list.txt')
 list_of_data=[]  # Replace 'your_file.txt' with the actual file path
@@ -34,7 +36,6 @@ class MultiBitTrie:
                 node.children[key] = Node()
             node = node.children[key]
         node.next_hop = next_hop
-
     def lookup(self, address):
         node = self.root
         result = None
@@ -47,7 +48,6 @@ class MultiBitTrie:
             else:
                 break
         return result
-
     def print_tree(self, node, level=0, prefix=""):
         if node.next_hop is not None:
             print(f"{prefix} -> Next Hop: {node.next_hop}")
@@ -60,6 +60,7 @@ def main():
     trie_strides = [1,2,4,8]
 
     for stride in trie_strides:
+        start_time=time.time()
         print(f"\n--- Trie with Stride {stride} ---")
         trie = MultiBitTrie(stride)
 
@@ -72,6 +73,7 @@ def main():
 
         # Printing the trie
         trie.print_tree(trie.root)
+        print(f'stride {stride} finished at {time.time()-start_time} seconds.')
 
 if __name__ == "__main__":
     main()
