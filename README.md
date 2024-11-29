@@ -24,12 +24,9 @@ AoND-S1-1403-1404-Project#01 implement MultiBit Trie
 3. **Memory Profiling**:
    - Using `memory-profiler`, memory consumption decreases as stride increases, with stride 1 using the most memory.
 
-4. **Link Speed Calculation**:
+4. ### Link Speed Calculation
    - Formula:
-     \[
-     \text{Link Speed (Gbps)} = \frac{\text{Total Data Size (bits)}}{\text{Transmission Time (seconds)} \times 10^9}
-     \]
+     `Link Speed (Gbps) = Total Data Size (bits) / (Transmission Time (seconds) * 10^9)`
    - Results are mentioned briefly in the context of data transmission.
-
 5. **General Observation**:
    - Larger strides reduce the number of trie levels, optimizing both time and memory.
